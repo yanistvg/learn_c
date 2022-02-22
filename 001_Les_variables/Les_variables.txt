@@ -1,0 +1,162 @@
+Les variables en programmation est essenciel, nous pouvons les represente comme une boite
+independante dans lequel il nous est possible de donner des valeurs a l'interieur.
+
+Les variables sont declrer sous la forme :
+  <type de la variabele> <nom de la variable>;
+
+En c nous avons different type de variables :
+
+  type de variable |         valeur min/max
+  --------------------------------------------------
+   char            |           -128 /           127
+   short int       |        -32 768 /        32 767
+   int             | -2 147 483 648 / 2 147 483 647
+   float           | -3.4*10^-38    / 3.4*10^38
+   double          | -1.7*10^-308   / 1.7*10^308
+   long double     | -3.4*10^-4932  / 3.4*10^4932
+
+Pour chaque type de variable, nous avons la possibilite d'ajouter le mot : unsigned
+pour signifier que nous voulons que des nombre positif. Donc les valeurs commence a 0
+
+  type de variable unsigned |         valeur min/max
+  ---------------------------------------------------------
+   char                     | 0 /           255
+   short int                | 0 /        65 535
+   int                      | 0 / 4 294 967 295
+
+Toute les variables n'on pas etais donne dans ce dernier tableau mais le principe est le meme
+pour les autres variables.
+
+Donc pour declarer un variable :
+  int ma_variable = 10;
+  ma_varible = -5;
+
+Petite particularite pour les variables char :
+  char est utilise pour des caractere mais il est possible de s'en servire comme
+  varible contenant un nombre:
+    char charactere = 'c';
+    char c2 = 48;
+    charactere = c2;
+
+
+Information :
+  pour ecrire sur le terminal nous allons utilise la fonction printf qui attend
+  une chaine de caractere.
+  pour afficher des varibles, dans le chaine de charactere il faut ajouter des indication
+  pour la fonction.
+
+  int    -> %d
+  long   -> %id
+  short  -> %hd
+  float  -> %f
+  double -> %f
+  char   -> %c
+  
+  et pour revenir sauter une ligne nous avons : \n
+
+  int ma_variable = 48;
+  char c = ma_varible;
+
+  printf("ma_varible = %d\nc = %c\n", ma_variable, c);
+
+  ici l'affichage :
+    ma_varible = 48
+    c = 0
+
+************************************************************************************************
+***                                                                                          ***
+***                                    PARTIE EXERCICE                                       ***
+***                                                                                          ***
+************************************************************************************************
+
+Dans le dossier exercices il y a les fichier .c a completer. Au fur et a mesure des correction
+serront disponible dans un dossier solutions
+
+
+EXERCICE 1:
+-----------
+
+  Pour ce premier exercice, nous allons afficher la taille en memoire des differente variables
+  citer precedament (char, short, int, long, long int, float, double, long double) a l'aide de
+  la fonction sizeof ( sizeof(int) ) qui donne la taille en octet de la taille memoire du type
+  de varible.
+
+  1) a l'aide de printf et de sizeof, afficher les differentes taille des variables
+  2) calculer la valeur maximale de ces varibles si elles sont unisgned :
+       - trouver le nombre de bites d'une variable (rappel un octet correspond a 8 bites)
+       - la valeur maximal correspond a 2^(nombre de bites)
+         pour calculer une puissance de 2 nous avons la fonction pow
+         pour l'utilise il faut ajouter en dessous de #include <stdio.h>, #include <math.h>
+      petite aide :
+        pow (2, sizeof(char)*8) donne 2 a la puissance du nombre bites de la varibale char
+
+  3) par rapport au tableau plus haut nous pouvont voir une difference. Quelle est cette difference
+     et expliquer pourquoi elle est presente.
+
+
+
+EXERCICE 2:
+-----------
+
+  Maintenant que nous venont de voir les differentes taille de memoire de variables nous allons
+  maintenant voir les limites des variables et comprendre la necciter de choisir les bon type
+  de variables celon sont utilisation
+
+  1) pour commencer nous allons declarer une varible du type que vous voudrait. Puis il faut
+     affecter a cette variables ca valeurs positif maximale. et faire un affichage de cette
+     valeurs.
+  2) Nous allons maintenant ajouter la valeur 1 a cette variables (var = var + 1) puis refaire
+     un affichage de cette varible. Expliquer le resultat obtenue.
+     Cette manipulation peut etre effectuer aussi en prenant la valeurs minimal et sustraire 1
+  3) Nous allons maintenant declarer une variable non signe (unsigned) du meme type que precedament
+     et nous lui affectons la valeurs maximal et nous allons l'afficher. Puis nous lui ajoutons
+     1 et on le reafiche. Quelle probleme peut on observe
+  4) Maintenant imagine cette situation dans le cas ou nous voudrions compter le nombre d'etudiant
+     a l'INSA avec une variable : unsigned char (255 maximum). quelle probleme pouvont nous rencontrer
+     et comment nous oriont pue evite une erreur
+
+
+
+EXERCICE 3:
+-----------
+
+  Nous avons vue les base sur les variables, l'importance de bien choisir ces type de variable. Nous
+  allons maintenant manipuler des variables de type caractere.
+
+  1) Nous allons creer une variable de type char et lui affecte la valeur 97 et nous allons faire
+     une boucle while, qui devrat prendre fin lorsque la varible aurrat attain la valeur 123. durant
+     cette boucle nous allons afficher la valeur de la variable avec %c dans printf et il ne faut pas
+     oublie d'ajouter 1 a cette variable sinon le programme va etre bloque dans la boucle. Le resultat
+     parer surprenant ?
+  2) nous allons maintenant creer une seconde variable de type char et nous allons lui affecte la valeur
+     'z', nous allons dans la boucle afficher aussi cette variable et nous allons soustraire 1 a cette
+     variable dans la boucle. (il ne sert a rien de changer la condition d'arret de la boucle dans notre
+     cas).
+  3) Pour mieux comprendre ce qui se passe soit dans le terminal linux ou dans votre navigateur faire :
+     man ascii. Ici nous avons les equivalence des caractere sous differente forme.
+  4) A l'aide de cette table, ecriver "<SALUT>\n" avec un printf sous la forme :
+     printf("%c%c%c%c%c%c%c%c", <a completer par les valeurs decimal>);
+  5) Comme vous avez pue vous rendre compte pour saute une ligne nous avons "\n" mais a l'aide de la
+     table ascii nous avons une valeurs disponible en decimal. Essayer avec un printf d'afficher la
+     valeur decimale 7 qui correspond aussi a "\a".
+
+
+
+EXERCICE 4:
+-----------
+
+  Pour ce nouvelle exercice nous allons manipuler un entier pour connaitre l'age d'une personne
+  et effectuer des actions celon la valeur.
+
+  1) Pour commencer nous allons afficher une phrase a l'utilisateur pour lui demender de renseigner
+     sont age. Puis avec la fonction scanf (man 3 scanf : pour avoir des information sur la fonction)
+     nous allons recuperer la valeurs donne par l'utilisateur, et afficher une phrase qui affiche
+     l'age recupere.
+  2) maintenant nous allons afficher un message pour une personne qui serrait mineur.et si la personne
+     est majeur nous voulons afficher un message different.
+  3) Nous allons maintenant protege la valeur donne c'est a dire si la valeurs n'est pas possible
+     nous allons afficher un message pour prevenir de l'erreur :
+       - pour arreter l'execution du code quand on le veut on peut se servir de return
+         n'importe ou dans le code
+  4) maintenant il va falloir afficher l'annee de naissance de l'utilisateur avec l'annee courante
+     sans tenir compte des mois.

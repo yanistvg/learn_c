@@ -1,0 +1,47 @@
+apprendre le C sous un systeme linux
+
+
+les premiers rappel :
+ - les fichiers de code en c porte l'extention .c et nous pouvons avoir
+   des fichier d'en-tete nomme aussi header qui porte comme extension .h
+ - pour compiler un code en c nous utilisont la commande : gcc
+   sont utilisation minimal : gcc <nom du fichier> -o <nom de l'executable>
+
+Pour les executables, il faut a sont lancement connaitre la premiere ligne
+a executer, pour le c la fonction d'entrer est la fonction main.
+
+En c chaque instruction dois se terminer par un point-virgule a l'exeption
+d'instruction que nous pouvons considerer comme contenant de plusieur instruction
+comme : if, else, while, for, ...
+ces derniere instruction sont delimite par des : {}
+
+Par ailleur si nous le voudrions, nous pourions ecrire un code en C sur
+une seule ligne mais pour des question de lisibilite il est fortement conseille
+d'ecrire sont code de maniere epurer et indente.
+Par exemple :
+
+  int main(void){printf("Wello World\n");return 0;}
+
+  Ce code est fonctionnel meme si il n'est pas evident a lire malgres sont action
+  qui est simpliste. Si le code est plus grand il serrat bien plus complique de le
+  comprendre a la relecture.
+
+
+
+Donc avec ce petit rappel :
+
+hello.c :
+  #include <stdio.h>
+
+  int main (void)
+  {
+    printf("Hello World\n");
+    return 0;
+  }
+
+$ gcc hello.c -o hello
+$ ./hello
+Hello World
+$
+
+Pour ce rappel nous ne nous attarderont pas sur l'instruction #include <stdio.h>
